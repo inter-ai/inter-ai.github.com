@@ -18,12 +18,12 @@ Each color have:
 @tailwind components;
 @tailwind utilities;
 
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('../../public/Roboto-Medium.ttf') format('truetype'); /* Regular font */
-//     font-weight: normal;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../public/Roboto-Medium.ttf') format('truetype'); /* Regular font */
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     font-family: 'Roboto', serif;
 }
