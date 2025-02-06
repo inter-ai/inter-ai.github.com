@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from "react";
 import { useRef } from "react";
-import { useGenerationStore } from "./ZustandStores/RecordingStore";
-import { useTextStore } from "./ZustandStores/TextStore";
+import { useGenerationStore } from "../ZustandStores/RecordingStore";
+import { useTextStore } from "../ZustandStores/TextStore";
 import React from "react";
 
 declare global{

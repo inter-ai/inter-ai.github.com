@@ -25,7 +25,7 @@ setName: (index: number, name: string) => void;
 }
 
 const useGraphStore = create<GraphStore>((set) => ({
-vertices: [{x:2048,y:2048}, {x:2048+90,y:2048+190}],
+vertices: [{x:0,y:0}, {x:0+834,y:0+697}],
 edges: [{nodeIndexA: 0, nodeIndexB: 1}],
 names: ["start","end"],
 setVertex: (index, newPosition) =>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Vertex from './Vertex';
-import useGraphStore from './ZustandStores/GraphStore';
+import useGraphStore from '../ZustandStores/GraphStore';
 import Line from './Line';
 import React from "react";
 

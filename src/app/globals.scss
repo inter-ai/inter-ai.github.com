@@ -17,7 +17,22 @@ Each color have:
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+// :root {
+//     --color-00: #000000;
+//     --color-40: #666666;
+//     --color-80: #cccccc;
+//     --color-c0: #f0f0f0;
+//     --color-ff: #ffffff;
+//     --color-golda0: #e6c200;
+//     --color-goldc0: #f2db80;
+//     --color-blue80: #3a7ca5;
+//     --color-blue40: #7fb3d5;
+//     --color-bluec0: #d0e4f7;
+//     --color-red80: #a53030;
+//     --color-red40: #d57373;
+//     --color-redc0: #f7d0d0;
+//   }
+  
 @font-face {
     font-family: 'Roboto';
     src: url('../../public/Roboto-Medium.ttf') format('truetype'); /* Regular font */
@@ -26,6 +41,41 @@ Each color have:
 }
 * {
     font-family: 'Roboto', serif;
+}
+:root{
+    --color-00: #000000;
+    --color-40: #2d2f34;
+    --color-80: #787882;
+    --color-c0: #e2e8f0;
+    --color-ff: #ffffff;
+
+    --color-golda0: #ac9521;
+    --color-goldc0: #c6af27;
+
+    --color-blue80: #243d83;
+    --color-blue40: #1f1f53;
+    --color-bluec0: #4d61c6;
+
+
+    --color-red80: #803434;
+    --color-red40: #411818;
+    --color-redc0: #c84747;
+
+
+    &::-webkit-scrollbar {
+        width: 50px; // Width of the scrollbar
+    }
+
+    // Scrollbar thumb
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-40); // Use your desired color variable
+    }
+
+    // Scrollbar track
+    &::-webkit-scrollbar-track {
+        background: var(--color-80); // Use your desired color variable
+    }
+
 }
 .light, div.light > * {
     --color-00: #000000;
@@ -53,12 +103,12 @@ Each color have:
 
     // Scrollbar thumb
     &::-webkit-scrollbar-thumb {
-        background: var(--color-4); // Use your desired color variable
+        background: var(--color-40); // Use your desired color variable
     }
 
     // Scrollbar track
     &::-webkit-scrollbar-track {
-        background: var(--color-8); // Use your desired color variable
+        background: var(--color-80); // Use your desired color variable
     }
 
 }
@@ -91,12 +141,12 @@ Each color have:
 
     // Scrollbar thumb
     &::-webkit-scrollbar-thumb {
-        background: var(--color-4); // Use your desired color variable
+        background: var(--color-40); // Use your desired color variable
     }
 
     // Scrollbar track
     &::-webkit-scrollbar-track {
-        background: var(--color-8); // Use your desired color variable
+        background: var(--color-80); // Use your desired color variable
     }
 }
 

@@ -7,7 +7,7 @@ interface Vertex {
   y: number;
 }
 import { useState, useEffect} from 'react';
-import useGraphStore from './ZustandStores/GraphStore';
+import useGraphStore from '../ZustandStores/GraphStore';
 export default function Vertex(props: { index: number, scale: number }) {
     const {vertices, names,  setVertex, setName} = useGraphStore();
     const [offset, setOffset] = useState({ x: vertices[props.index].x, y: vertices[props.index].y  }); // For panning

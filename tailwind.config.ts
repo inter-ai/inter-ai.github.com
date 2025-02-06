@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const tailwindConfig :Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -33,3 +33,5 @@ export default {
     require('tailwind-scrollbar-hide')
   ],
 } satisfies Config;
+// module.exports = tailwindConfig;
+export default tailwindConfig;

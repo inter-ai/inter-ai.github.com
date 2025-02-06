@@ -3,7 +3,7 @@
 //     y: number;
 // }
 // import { useState, useEffect, useRef} from 'react';
-import useGraphStore from './ZustandStores/GraphStore';
+import useGraphStore from '../ZustandStores/GraphStore';
 import React from "react";
 
 export default function Line(props: { iA: number, iB: number }) {
