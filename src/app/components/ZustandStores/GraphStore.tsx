@@ -15,19 +15,24 @@ interface GraphStore {
 vertices: Vertex[];
 edges: Edge[];
 names: string[];
+isDrawingEdge: boolean; //editing mode
+isDrawingEdgeRemaining: number;
 setVertex: (index : number, newPosition : Vertex) => void;
 addVertex: (node: Vertex, name: string) => void;
 addEdge: (nodeIndexA: number, nodeIndexB: number) => void;
 removeVertex: (index: number) => void;
 removeEdge: (nodeIndexA: number, nodeIndexB: number) => void;
 setName: (index: number, name: string) => void;
-
+setIsDrawingEdge: (newVal: boolean) => void;
+setIsDrawingEdgeRemaining: (newVal: number) => void;
 }
 
 const useGraphStore = create<GraphStore>((set) => ({
 vertices: [{x:0,y:0}, {x:0+834,y:0+697}],
 edges: [{nodeIndexA: 0, nodeIndexB: 1}],
 names: ["start","end"],
+isDrawingEdge: false,
+isDrawingEdgeRemaining: 0,
 setVertex: (index, newPosition) =>
     set((state) => {
         const updatedVertices = [...state.vertices];
@@ -39,10 +44,15 @@ addVertex: (node, name) =>
         vertices: [...state.vertices, node],
     names: [...state.names, name],
     })),
-addEdge: (nodeIndexA, nodeIndexB) =>
-    set((state) => ({
-    edges: [...state.edges, { nodeIndexA, nodeIndexB }],
-    })),
+addEdge: (anodeIndexA, anodeIndexB) =>
+    set((state) => {
+        if (anodeIndexA < anodeIndexB) {
+            return {
+                edges: [...state.edges, { nodeIndexA: anodeIndexA, nodeIndexB: anodeIndexB }]
+            };
+        }
+        return state;
+    }),
 removeVertex: (index) =>
     set((state) => {
     const newNodes = state.vertices.filter((_, i) => i !== index);
@@ -69,6 +79,14 @@ setName: (index, newName) =>
         updatedNames[index] = newName;
         return { names: updatedNames };
         }),
+setIsDrawingEdge: (newVal) =>
+    set((state) => ({
+        isDrawingEdge: newVal
+        })),
+setIsDrawingEdgeRemaining: (newVal) =>
+    set((state) => ({
+        isDrawingEdgeRemaining: newVal
+        })),
 }));
 
 export default useGraphStore;
