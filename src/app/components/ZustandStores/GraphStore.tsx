@@ -80,11 +80,11 @@ setName: (index, newName) =>
         return { names: updatedNames };
         }),
 setIsDrawingEdge: (newVal) =>
-    set((state) => ({
+    set(() => ({
         isDrawingEdge: newVal
         })),
 setIsDrawingEdgeRemaining: (newVal) =>
-    set((state) => ({
+    set(() => ({
         isDrawingEdgeRemaining: newVal
         })),
 }));

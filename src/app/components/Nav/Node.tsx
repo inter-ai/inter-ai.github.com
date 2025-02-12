@@ -19,9 +19,9 @@ export default function Node(props : {
     // console.log(props.path);
     // console.log(activePath.slice(0,props.path.length));
 
-    let color = (props.path.toString() === activePath.slice(0,props.path.length).toString())?" text-cblue80":" text-c00"; //if part of the path
+    const color = (props.path.toString() === activePath.slice(0,props.path.length).toString())?" text-cblue80":" text-c00"; //if part of the path
 
-    let nodeRender = (
+    const nodeRender = (
         // Node outline px-[2rem] py-[0.5rem]
         <div className={" flex"}  > 
             {/* WHEN CLICK LINK, CHANGE PATH TOTALLY */}

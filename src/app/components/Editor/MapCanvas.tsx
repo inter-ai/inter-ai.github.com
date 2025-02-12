@@ -1,10 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import Vertex from './Vertex';
 import useGraphStore from '../ZustandStores/GraphStore';
-import Line from './Line';
 import React from "react";
-import tailwindConfig from "../../../../tailwind.config";
-import { off } from 'process';
 // console.log(tailwindConfig.theme.extend.colors?.c00);
 const Map:React.FC = ()=> {
   const vertRadius = 8;
@@ -20,7 +16,7 @@ const Map:React.FC = ()=> {
   const [isPanning, setisPanning] = useState(false);
   const [draggedVertex, setdraggedVertex] = useState(-1); // For zoom
   const [mouseStartPosition, setmouseStartPosition] = useState({ x: 0, y: 0 });
-  const {vertices, edges, setVertex, addEdge, isDrawingEdge, isDrawingEdgeRemaining, setIsDrawingEdge, setIsDrawingEdgeRemaining} = useGraphStore();
+  const {vertices, edges, setVertex, addEdge, isDrawingEdge, isDrawingEdgeRemaining, setIsDrawingEdgeRemaining} = useGraphStore();
   // const getTailwindColor = (tailwindCode:string) => {
   //   const div = document.createElement("div");
   //   div.className = "bg-"+tailwindCode+" "; // Apply Tailwind color
@@ -41,7 +37,7 @@ const Map:React.FC = ()=> {
     y: number;
   }
   const getCanvasRect = () => {
-    var canvasPostition = canvasRef.current!.getBoundingClientRect();
+    const canvasPostition = canvasRef.current!.getBoundingClientRect();
     // console.log(canvasPostition);
     return canvasPostition;
   }
@@ -139,7 +135,7 @@ const Map:React.FC = ()=> {
       const start = vertices[edge.nodeIndexA];
       const end = vertices[edge.nodeIndexB];
       if (!start || !end) return;
-      // ctx.beginPath();
+      ctx.beginPath();
       ctx.moveTo((start.x + offset.x)*scale, (start.y + offset.y)*scale);
       ctx.lineTo((end.x+ offset.x)*scale, (end.y+ offset.y)*scale);
       ctx.stroke();
@@ -173,8 +169,8 @@ const Map:React.FC = ()=> {
   const handleMouseDown = (e:React.MouseEvent<HTMLCanvasElement>) => {
         // e.preventDefault();
         // e.stopPropagation(); // Prevent event propagation to the map
-        var mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
-        var clickedOnVert = false;
+        const mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
+        let clickedOnVert = false;
         // console.log(mousePosition);
         vertices.forEach((vert, vertIndex)=>{
           // console.log(vert);
@@ -188,8 +184,8 @@ const Map:React.FC = ()=> {
               }
               else {
                 console.log("clicked edge B");
-                var nia=Math.min(drawnEdgeAIndex,vertIndex);
-                var nib=Math.max(drawnEdgeAIndex,vertIndex);
+                const nia=Math.min(drawnEdgeAIndex,vertIndex);
+                const nib=Math.max(drawnEdgeAIndex,vertIndex);
 
                 // let newEdge = {nodeIndexA:drawnEdgeAIndex, nodeIndexB:vertIndex};
                 // let newEdge1 = {nodeIndexA:vertIndex, nodeIndexB:drawnEdgeAIndex};
@@ -226,7 +222,7 @@ const Map:React.FC = ()=> {
   };
   const handleMouseMove = (e:React.MouseEvent<HTMLCanvasElement>) => {
       
-    var mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
+    const mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
     const newOffset = {
       // x: e.clientX/scale - mouseStartPosition.x,
       // y: e.clientY/scale - mouseStartPosition.y,

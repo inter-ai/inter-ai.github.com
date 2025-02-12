@@ -8,7 +8,7 @@ Rename to Document
 
 */
 // import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 // import NavFolder from "../Archived/NavFolder";
 // import NavItem from "../Archived/NavItem";
 import ToggleTheme from "../ToggleTheme";
@@ -21,7 +21,7 @@ import EndNode from "./EndNode";
 export default function Navbar() {
   
   const [open, setOpen] = useState(false); //if the map is opened
-  const {activePath, addActivePath} = usePathStore();
+  const {activePath} = usePathStore();
   // const router = useRouter();
   const currentUrl = window.location.pathname;
   /**
@@ -45,7 +45,7 @@ export default function Navbar() {
       }
       if (node.c){ //if have children
         for (let i = 0; i < node.c.length; i++){
-          let childResult : any = dfs(node.c[i], curPath.concat(i));
+          const childResult : any = dfs(node.c[i], curPath.concat(i));
           if (childResult != false){
             return childResult;
           }
@@ -58,7 +58,7 @@ export default function Navbar() {
   }
   const path = getPath();
   function getChildren(){ //get childrenNodes of the current absolute file path
-    var curNode = map;
+    let curNode = map;
     for (let i = 0; i < path.length; i++){
       curNode = curNode.c[path[i]];
     }
@@ -68,8 +68,8 @@ export default function Navbar() {
     // console.log(getPath());
     // Prep immediate children list to render
     // setPath(getPath());
-    var childrenNodes = getChildren();
-    var childrenLinks : any[] = [];
+    const childrenNodes = getChildren();
+    const childrenLinks : any[] = [];
     if (childrenNodes != undefined){
       for (let i = 0; i < childrenNodes.length; i++){
         childrenLinks.push(
@@ -83,17 +83,17 @@ export default function Navbar() {
   }
   function getColums(){
     console.log(activePath);
-    let colums: any[] = [];
+    const colums: any[] = [];
     // Prep nodes list to render
     if (open){  //transform into list of nodes for render
       let curNode = map; //starts at origin Node
-      let path :Array<number> = []; //origin have no path
+      const path :Array<number> = []; //origin have no path
   
       for (let i = 0; i < activePath.length; i++){
-        let branch = activePath[i];
+        const branch = activePath[i];
         curNode = curNode.c[branch];
         path.push(branch); //at this location
-        let colum : any[] = [];
+        const colum : any[] = [];
         curNode.c.forEach((node :any, index: number) => {
           // Check for cases of children
           // if (i < activePath.length-1 && index === activePath[i+1]) { //if is a node in path
@@ -120,10 +120,10 @@ export default function Navbar() {
     return colums
   }
   function renderColums(){ //render each colum by returning children of all colums not root
-    let colums: any = getColums();
-    let everything : any = []; //al colums
+    const colums: any = getColums();
+    const everything : any = []; //al colums
     colums.forEach((colum:any, colIndex: number) =>{ //for each column, add column into everything
-      let cl:any = [];
+      const cl:any = [];
       colum.forEach((node:any) => {
         cl.push(node);
       });    

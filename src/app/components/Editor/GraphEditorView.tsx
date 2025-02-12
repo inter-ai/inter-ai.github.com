@@ -26,8 +26,8 @@ export default function ActionBar() {
                         <svg viewBox="0 0 32 32" className=" fill-c80 hover:fill-c00" xmlns="http://www.w3.org/2000/svg">
                             <mask id="add-mask">
                                 <rect width="200" height="200" fill="white"/>
-                                <line x1="12" y1="16" x2="20" y2="16" stroke="black" strokeLinecap="round" stroke-width="1.5" />
-                                <line x1="16" y1="12" x2="16" y2="20" stroke="black" strokeLinecap="round" stroke-width="1.5" />
+                                <line x1="12" y1="16" x2="20" y2="16" stroke="black" strokeLinecap="round" strokeWidth="1.5" />
+                                <line x1="16" y1="12" x2="16" y2="20" stroke="black" strokeLinecap="round" strokeWidth="1.5" />
 
                                 {/* <line x1="20" y1="16" x2="16" y2="12" stroke="black" strokeLinecap="round" stroke-width="1.5" />
                                 <line x1="20" y1="16" x2="16" y2="20" stroke="black" strokeLinecap="round" stroke-width="1.5" /> */}
@@ -40,9 +40,9 @@ export default function ActionBar() {
                             
                             <mask id="arrow-mask">
                                 <rect width="200" height="200" fill="white"/>
-                                <line x1="12" y1="16" x2="20" y2="16" stroke="black" strokeLinecap="round" stroke-width="1.5" />
-                                <line x1="20" y1="16" x2="16" y2="12" stroke="black" strokeLinecap="round" stroke-width="1.5" />
-                                <line x1="20" y1="16" x2="16" y2="20" stroke="black" strokeLinecap="round" stroke-width="1.5" />
+                                <line x1="12" y1="16" x2="20" y2="16" stroke="black" strokeLinecap="round" strokeWidth="1.5" />
+                                <line x1="20" y1="16" x2="16" y2="12" stroke="black" strokeLinecap="round" strokeWidth="1.5" />
+                                <line x1="20" y1="16" x2="16" y2="20" stroke="black" strokeLinecap="round" strokeWidth="1.5" />
                             </mask>
                             <circle r="12" cx="16" cy="16" mask="url(#arrow-mask)"></circle>
                             
