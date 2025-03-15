@@ -154,17 +154,14 @@ const Map:React.FC = ()=> {
   const handleWheel = (e:React.WheelEvent<HTMLCanvasElement>) => {
     /**
      * When zooming, you want to make the center consistent
-     * Approximating method: make the viewport top-left consistent
-     * - the newCoordinate of the viewPort is offset/zoom
-     * - the returing amount is newCor-oldCor = oldCor*offset/zoom-oldCor
-     * - the updatedCoordinateis = oldCor-(oldCor*offset/zoom-oldCor)=2oldCor-oldCor*offset/zoom)
+     * (mouse+offset)*scale=(mouse+offset')*scale'
+     * (mouse+offset)*scale/scale'-mouse=offset'
      */
     // e.preventDefault();
     const zoomFactor = 0.1;
     const calculateZoomFactor = Math.min(Math.max(scale - e.deltaY * zoomFactor * 0.01,0.5),2)
     const mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
-    //(mouse+offset)*scale=(mouse+offset')*scale'
-    //(mouse+offset)*scale/scale'-mouse=offset'
+    
     setOffset({x:(mousePosition.x+offset.x)*scale/calculateZoomFactor-mousePosition.x   ,
       y:(mousePosition.y+offset.y)*scale/calculateZoomFactor-mousePosition.y})
     setScale(calculateZoomFactor); // Limits zoom between 0.5x and 2x
