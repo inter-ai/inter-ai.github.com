@@ -161,9 +161,15 @@ const Map:React.FC = ()=> {
      */
     // e.preventDefault();
     const zoomFactor = 0.1;
-    const calculateZoomFactor = scale - e.deltaY * zoomFactor * 0.01
-    setScale(Math.min(Math.max(calculateZoomFactor,0.5), 2)); // Limits zoom between 0.5x and 2x
-
+    const calculateZoomFactor = Math.min(Math.max(scale - e.deltaY * zoomFactor * 0.01,0.5),2)
+    const mousePosition = screenToMapPos({x:e.clientX,y:e.clientY});
+    //(mouse+offset)*scale=(mouse+offset')*scale'
+    //(mouse+offset)*scale/scale'-mouse=offset'
+    setOffset({x:(mousePosition.x+offset.x)*scale/calculateZoomFactor-mousePosition.x   ,
+      y:(mousePosition.y+offset.y)*scale/calculateZoomFactor-mousePosition.y})
+    setScale(calculateZoomFactor); // Limits zoom between 0.5x and 2x
+    
+    
   };
 
   const handleMouseDown = (e:React.MouseEvent<HTMLCanvasElement>) => {

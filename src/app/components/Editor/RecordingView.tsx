@@ -21,7 +21,7 @@ export default function RecordingView() {
     const recognitionRef = useRef<any>(null);
 
     // Audio file management
-    const {audioURL, setAudioURL} = useGenerationStore(); //the recorded piece
+    const {setAudioURL} = useGenerationStore(); //the recorded piece
     const audioChunksRef = useRef<Blob[]>([]);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const {text, setText} = useTextStore();
@@ -105,7 +105,7 @@ export default function RecordingView() {
         }
     }
     return (
-        <div className = "relative h-screen w-full">
+        <div className = "relative h-full w-full">
             {/* Right bar */}
             {/*             
             <div className=" absolute h-full right-0 w-[25%] bg-cc0">
@@ -135,11 +135,9 @@ export default function RecordingView() {
 
 
             {/* Audio file */}
-            {audioURL &&
-                (<audio className=" absolute bottom-0 left-[12.5%] w-[62.5%] h-[6.25%]" src={audioURL} controls />)
-            }
+            
             {/* Button Section */}
-            <div className=" absolute left-0 bottom-0 w-[12.5%] h-[12.5%]">
+            <div className=" absolute left-0 bottom-0 w-full h-full">
                 {isRecording ? (
                     <button onClick={handleToggleRecording} className=" w-full h-full m-auto flex flex-center items-center justify-center bg-transparent hover:bg-credc0">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 fill-c00" viewBox="0 0 20 20"><path d="M6.75 3a2 2 0 0 0-2 2v10a2 2 0 1 0 4 0V5a2 2 0 0 0-2-2Zm6.5 0a2 2 0 0 0-2 2v10a2 2 0 1 0 4 0V5a2 2 0 0 0-2-2Z" /></svg>

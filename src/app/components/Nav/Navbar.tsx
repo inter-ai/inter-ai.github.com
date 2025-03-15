@@ -33,7 +33,8 @@ export default function Navbar() {
    */
   const map :any = {c:[
     {n:"HOME", l:"/", c:[
-      {n:"EDITOR", l:"/editor"}
+      {n:"EDITOR", l:"/editor"},
+      {n:"ABOUT", l:"/about"}
     ]}
   ]};
   function getPath(){
