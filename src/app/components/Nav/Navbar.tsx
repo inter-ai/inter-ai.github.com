@@ -173,26 +173,3 @@ export default function Navbar() {
 }
 
 
-
-
-
-
-// }
-// function getNode(child: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined){ //return the nodes
-//   // console.log(typeof child);
-//   const [activePath, setActivePath] = useRecoilState(activePathState);
-//   if (typeof child === 'string' ){
-//     return (
-//     <li className=" text-c0">
-//       {child}
-//     </li>
-//     );
-//   } 
-//   else {
-//     return (
-//     <li className=" text-c0 hover:bg-c8Blue" >
-//       {child}
-//     </li>
-//     );
-//   }
-// }
