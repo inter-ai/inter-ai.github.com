@@ -2,7 +2,6 @@
   "name": "agent_h",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -12,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "axios": "^1.8.3",
+    "n3": "^1.24.2",
     "next": "15.2.0-canary.50",
     "react": "19.0.0",
     "react-dom": "19.0.0",

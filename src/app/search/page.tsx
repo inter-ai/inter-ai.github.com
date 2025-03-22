@@ -1,7 +1,9 @@
 'use client'
 import { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import Head from "next/head";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 interface Agent {
   id: number;
@@ -16,17 +18,8 @@ export default function Search() {
     try {
       // fetch("http://localhost:8000/items").then((res) => res.json())
       // .then((data) => setAgents(data));
-      const response = await fetch("https://browser-backend-0fwi.onrender.com/agent/kg/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          agent_name: "string",
-        }),
-      });
-      const data = await response.json();
-      console.log("Response:", data);
+      const response = await axios.get(`${API_BASE_URL}/environment/kg/dump`);
+      console.log("Response:", response.data);
     } catch (error) {
       console.error("Error fetching items:", error);
     }
