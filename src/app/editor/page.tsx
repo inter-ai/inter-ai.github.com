@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import RecordingView from "../components/Editor/RecordingView";
 // import ToggleTheme from "./components/ToggleTheme";
-import Navbar from '../components/Nav/Navbar';
+// import Navbar from '../components/Nav/Navbar';
 // import Map from './components/Map';
 import Textbox from './../components/Textbox';
 import GraphEditorView from '../components/Editor/GraphEditorView';
@@ -37,7 +37,6 @@ return (
     <link rel="icon" href="/favicon.png" />
 </Head>
 <div className=' flex flex-col h-screen'>
-  <Navbar></Navbar>
   <div className=' w-full flex-1 relative overflow-hidden'>
       <GraphEditorView></GraphEditorView>
       <div className=' absolute top-[87.5%] w-full  h-[12.5%]'>

@@ -1,4 +1,4 @@
-import Navbar from "@/app/components/Nav/Navbar";
+// import Navbar from "@/app/components/Nav/Navbar";
 import Head from "next/head";
 export default function About() {
     return (
@@ -11,9 +11,6 @@ export default function About() {
             />
             <link rel="icon" href="/favicon.png" />
         </Head>
-        <Navbar>
-
-        </Navbar>
         </>
     );
 }
